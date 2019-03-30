@@ -21,14 +21,20 @@ pipeline {
         }
         
        stage('publish') {
-            steps {
-                input {
+            
+       input {
                       message 'publish to s3'
                       ok 'publish'
                       parameters {
                           choice choices: ['yes, no'], description: '', name: 'publish'
                       }
-                }
+        }
+         steps {
+             if (env.BRANCH_NAME == 'master') {
+                echo ' yes publishing oo S3'
+              } else {
+                echo 'No not publishing to s3'
+              }
             }
         }
     }
