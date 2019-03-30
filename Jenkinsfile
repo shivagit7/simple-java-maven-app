@@ -19,5 +19,19 @@ pipeline {
             //    sh 'mvn -B -DskipTests clean package'
             }
         }
+        
+       stage('publish') {
+            steps {
+                input {
+                      message 'publish to s3'
+                      ok 'publish'
+                      parameters {
+                          choice choices: ['yes, no'], description: '', name: 'publish'
+                      }
+                }
+            }
+        }
     }
 }
+
+
