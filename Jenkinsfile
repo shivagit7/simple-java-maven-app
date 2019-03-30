@@ -10,8 +10,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                withMaven(
-                 maven: 'maven-3.3.9'
+                withMaven( maven: 'maven-3.3.9' )
                   {
                      // Run the maven build
                       sh "mvn clean install"
