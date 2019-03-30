@@ -21,6 +21,7 @@ pipeline {
         }
         
        stage('publish') {
+           steps{
             
        input {
                       message 'publish to s3'
@@ -36,7 +37,7 @@ pipeline {
                 echo 'No not publishing to s3'
               }
             }
-       
+       }  
     }
 }
 
