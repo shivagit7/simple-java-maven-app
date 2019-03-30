@@ -30,7 +30,7 @@ pipeline {
                       }
         }
          steps {
-             if (env.BRANCH_NAME == 'master') {
+             if (${publish} == 'yes') {
                 echo ' yes publishing oo S3'
               } else {
                 echo 'No not publishing to s3'
