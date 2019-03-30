@@ -21,7 +21,6 @@ pipeline {
         }
         
        stage('publish') {
-           steps{
             
        input {
                       message 'publish to s3'
@@ -30,13 +29,13 @@ pipeline {
                           choice choices: ['yes, no'], description: '', name: 'publish'
                       }
         }
-         
+         steps{
              if (${publish} == 'yes') {
                 echo ' yes publishing oo S3'
               } else {
                 echo 'No not publishing to s3'
               }
-            }
+         }   
        }  
     }
 }
